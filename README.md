@@ -9,6 +9,7 @@
 </p>
 
 ESLint is a static code linter for JavaScript, which means it analyzes your JavaScript code for errors, style problems and coding convention violations.
+<br>
 This is my ESLint configuration, which I use for my JavaScript and TypeScript projects.
 
 <br>
@@ -41,7 +42,7 @@ npm install -D eslint @maxencebonamy/eslint-config
 1. **Install** <a href="https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint" target="_blank">ESLint</a> extension.
 
 2. **Paste** the folling code into the `.vscode/settings.json` file:
-```
+```json
 {
     "prettier.enable": false,
     "editor.formatOnSave": false,
