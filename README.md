@@ -37,6 +37,16 @@ npm install -D eslint @maxencebonamy/eslint-config
 }
 ```
 
+3. **Add** the scripts for linting into the `package.json` file by pasting the following code:
+```json
+{
+	"scripts": {
+	    "lint": "eslint .",
+	    "lint:fix": "eslint . --fix"
+  	}
+}
+```
+
 ### Enable auto fix with VS Code:
 
 1. **Install** <a href="https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint" target="_blank">ESLint</a> extension.
