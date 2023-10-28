@@ -9,8 +9,8 @@
 		"url": "git+https://github.com/maxencebonamy/ESLint-Config"
 	},
 	"publishConfig": {
-		"access": "public"
-	},
+                "registry": "https://npm.pkg.github.com"
+        },
 	"peerDependencies": {
 		"eslint": ">=8.0.0",
 		"typescript": ">=4.9.0"
