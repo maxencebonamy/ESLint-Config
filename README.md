@@ -40,10 +40,10 @@ npm install -D eslint @maxencebonamy/eslint-config
 3. **Add** the scripts for linting into the `package.json` file by pasting the following code:
 ```json
 {
-	"scripts": {
-	    "lint": "eslint .",
-	    "lint:fix": "eslint . --fix"
-  	}
+    "scripts": {
+        "lint": "eslint .",
+        "lint:fix": "eslint . --fix"
+    }
 }
 ```
 
