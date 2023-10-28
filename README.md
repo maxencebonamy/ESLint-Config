@@ -17,12 +17,12 @@ This is my ESLint configuration, which I use for my JavaScript and TypeScript pr
 	<img src="https://github.com/maxencebonamy/maxencebonamy/blob/main/assets/2_Get_Started.png" width="100%" alt="Get Started">
 </p>
 
+### Install the config:
+
 > [!NOTE]
 > *Prerequisites:*
 > - [x] *NodeJS must be installed on your computer. If not, <a href="https://nodejs.org/" target="_blank">click here.</a>*
 <br>
-
-### Install the config:
 
 1. **Install** the dependency:
 ```
