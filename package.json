@@ -6,16 +6,17 @@
 	"license": "ISC",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/maxencebonamy/ESLint-Config"
+		"url": "git+https://github.com/maxencebonamy/ESLint-Config.git"
 	},
 	"publishConfig": {
-		"registry": "https://npm.pkg.github.com"
+		"registry": "https://registry.npmjs.org/"
 	},
 	"peerDependencies": {
 		"eslint": ">=8.0.0",
 		"typescript": ">=4.9.0"
 	},
 	"dependencies": {
+		"@maxencebonamy/eslint-config": "^1.0.0",
 		"@typescript-eslint/eslint-plugin": "^5.43.0",
 		"@typescript-eslint/parser": "^5.43.0"
 	}
