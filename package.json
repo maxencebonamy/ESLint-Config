@@ -3,7 +3,7 @@
 	"version": "1.0.2",
 	"main": "index.js",
 	"author": "Maxence Bonamy",
-	"license": "ISC",
+	"license": "MIT",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/maxencebonamy/ESLint-Config.git"

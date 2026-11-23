@@ -1,63 +1,116 @@
-<p align="center">
-	<img src="https://github.com/maxencebonamy/maxencebonamy/blob/main/assets/ESLint_Config.png" width="100%" alt="Sand Box">
-</p>
+# ESLint Config
 
-<br>
+A shared ESLint configuration for JavaScript and TypeScript projects.
 
-<p align="center">
-	<img src="https://github.com/maxencebonamy/maxencebonamy/blob/main/assets/1_Description.png" width="100%" alt="Description">
-</p>
+Published on npm as `@maxencebonamy/eslint-config`. It extends the ESLint and typescript-eslint recommended rule sets and enforces a fixed code style: tabs, double quotes, no semicolons.
 
-ESLint is a static code linter for JavaScript, which means it analyzes your JavaScript code for errors, style problems and coding convention violations.
-<br>
-This is my ESLint configuration, which I use for my JavaScript and TypeScript projects.
+## Table of contents
 
-<br>
+- [ESLint Config](#eslint-config)
+	- [Table of contents](#table-of-contents)
+	- [How it works](#how-it-works)
+	- [Tech stack](#tech-stack)
+	- [Repository structure](#repository-structure)
+	- [Prerequisites](#prerequisites)
+	- [Installation](#installation)
+	- [Configuration](#configuration)
+		- [ESLint (`.eslintrc.json`)](#eslint-eslintrcjson)
+		- [VS Code (`.vscode/settings.json`)](#vs-code-vscodesettingsjson)
+	- [Useful scripts](#useful-scripts)
+	- [License](#license)
 
-<p align="center">
-	<img src="https://github.com/maxencebonamy/maxencebonamy/blob/main/assets/2_Get_Started.png" width="100%" alt="Get Started">
-</p>
+## How it works
 
-### Install the config:
+1. **Base rules**: the config extends `eslint:recommended`, `plugin:@typescript-eslint/recommended` and `plugin:@typescript-eslint/recommended-requiring-type-checking`.
+2. **Parsing**: files are parsed with `@typescript-eslint/parser`, with `parserOptions.project` set to `true` so type-aware rules use the nearest `tsconfig.json`.
+3. **Style rules**: formatting is enforced through ESLint rules instead of a separate formatter. Main choices: tab indentation, double quotes, no semicolons, no trailing commas, no end-of-file newline, 150 characters per line.
+4. **TypeScript rules**: explicit function return types (expressions allowed), unused variables prefixed with `_` are ignored, `import type` and `export type` are written as separate statements, type assertions use the `as` syntax.
+5. **Ignored paths**: `.eslintrc.js`, `dist` and `build`.
 
-> [!NOTE]
-> *Prerequisites:*
-> - [x] *NodeJS must be installed on your computer. If not, <a href="https://nodejs.org/" target="_blank">click here.</a>*
-<br>
+## Tech stack
 
-1. **Install** the dependency:
+| Layer | Technologies |
+| --- | --- |
+| Linting | ESLint (`>=8.0.0`) |
+| Language support | TypeScript (`>=4.9.0`), `@typescript-eslint/parser` 5, `@typescript-eslint/eslint-plugin` 5 |
+| Distribution | npm (`@maxencebonamy/eslint-config`) |
+
+## Repository structure
+
 ```
+.
+├── index.js        ESLint configuration (CommonJS export)
+├── package.json    Package metadata and peer dependencies
+├── LICENSE         MIT license
+└── README.md       This file
+```
+
+The whole configuration lives in `index.js`: a single `module.exports` object with the `extends`, `parser`, `parserOptions`, `plugins`, `ignorePatterns` and `rules` fields.
+
+## Prerequisites
+
+- [Node.js](https://nodejs.org/) and npm
+- A project using ESLint `>=8.0.0` and TypeScript `>=4.9.0`
+- A `tsconfig.json` reachable from the linted files, required by the type-aware rules
+
+## Installation
+
+To use the config in a project:
+
+```bash
 npm install -D eslint @maxencebonamy/eslint-config
 ```
 
-2. **Paste** the following code into the `.eslintrc.json` file:
+To work on the config itself:
+
+```bash
+git clone git@github.com:maxencebonamy/ESLint-Config.git
+cd ESLint-Config
+npm install
+```
+
+## Configuration
+
+### ESLint (`.eslintrc.json`)
+
 ```json
 {
-    "extends": "@maxencebonamy"
+	"extends": "@maxencebonamy"
 }
 ```
 
-3. **Add** the scripts for linting into the `package.json` file by pasting the following code:
+### VS Code (`.vscode/settings.json`)
+
+To apply fixes on save, install the [ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint), then add:
+
 ```json
 {
-    "scripts": {
-        "lint": "eslint .",
-        "lint:fix": "eslint . --fix"
-    }
+	"prettier.enable": false,
+	"editor.formatOnSave": false,
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": true
+	}
 }
 ```
 
-### Enable auto fix with VS Code:
+## Useful scripts
 
-1. **Install** <a href="https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint" target="_blank">ESLint</a> extension.
+The package defines no scripts. Add these to the `package.json` of the project that uses the config:
 
-2. **Paste** the folling code into the `.vscode/settings.json` file:
 ```json
 {
-    "prettier.enable": false,
-    "editor.formatOnSave": false,
-    "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": true
-    }
+	"scripts": {
+		"lint": "eslint .",
+		"lint:fix": "eslint . --fix"
+	}
 }
 ```
+
+| Command | Effect |
+| --- | --- |
+| `npm run lint` | Report rule violations |
+| `npm run lint:fix` | Report violations and apply automatic fixes |
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
